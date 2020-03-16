@@ -1,0 +1,5 @@
+python test.py
+--dataroot ./seed_data/ --name final_honeywell --model PATN --phase test --dataset_mode keypoint --norm batch --batchSize 4 --resize_or_crop no --gpu_ids 0,1 --BP_input_nc 18 --no_flip --which_model_netG PATN --checkpoints_dir ./checkpoints --pairLst ./seed_data/seed-pairs-test.csv --which_epoch latest --results_dir ./results --display_id 0
+
+
+python train.py --dataroot ./seed_data/ --name new_model --model PATN --lambda_GAN 5 --lambda_A 10  --lambda_B 10 --dataset_mode keypoint --no_lsgan --n_layers 3 --norm batch  --resize_or_crop no --gpu_ids 1 --BP_input_nc 18 --no_flip --which_model_netG PATN --niter 500 --niter_decay 200 --checkpoints_dir ./checkpoints --pairLst ./seed_data/seed-pairs-train.csv --L1_type l1_plus_perL1 --n_layers_D 5 --with_D_PP 1 --with_D_PB 1  --display_id 0 --batchSize 16
