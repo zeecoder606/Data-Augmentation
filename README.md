@@ -5,6 +5,8 @@
 
 Clone this repository. Download the pre-trained Keras model for Human-Pose Detection(Open-pose) from [Open-pose](https://drive.google.com/file/d/13C2psaHPj0ooxyVUK85ub3EVpHkVtr4E/view?usp=sharing). Download the pre-trained VGG-19 PyTorch model from [VGG](https://drive.google.com/file/d/14A6RevoScEBoJtPfWAuhloaGXZoy82Sf/view?usp=sharing).
 
+Put the VGG model in the main Data-Augmentation repository.
+Put the Pose-Transfer model in the Data-Augmentation/tool.
 
 # Requirement
     python 2
@@ -27,8 +29,8 @@ Clone this repository. Download the pre-trained Keras model for Human-Pose Detec
 Run the following python commands to generate 18-channel keypoint Posemaps of the input and target images. 
 
 ```python
-python tools/compute_coordinates.py test_in
-python tools/compute_coordinates.py test_out
+python tool/compute_coordinates.py test_in
+python tool/compute_coordinates.py test_out
 
 ```
 Input Posemaps are stored in seed_data/test_inK. Target Posemaps are stored in seed_data/test_outK
