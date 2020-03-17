@@ -17,11 +17,14 @@ import create_pairs_dataset
 import argparse
 
 
-parser = argparse.ArgumentParser(description='train or test_in or test_out')
-parser.add_argument('phase', type=str, help='train or test_in or test_out')
+parser = argparse.ArgumentParser(description='train and test options')
+parser.add_argument('--phase', type=str, help='train or test_in or test_out')
+parser.add_argument('--img_size',type=str, default = '128,64', help='H,W')
 args_phase = parser.parse_args()
 phase = args_phase.phase
-
+image_size = args_phase.img_size
+image_size = image_size.split(',') 
+image_size = (int(image_size[0]),int(image_size[1]))
 
 # args = args()
 config = ConfigProto()
@@ -244,7 +247,7 @@ for image_name in tqdm(img_list):
     print >> result_file, "%s: %s: %s" % (image_name, str(list(pose_cords[:, 0])), str(list(pose_cords[:, 1])))
     result_file.flush()
     # generate pose maps
-    generate_pose.compute_pose(input_path, annotations_file, save_pose_path)
+    generate_pose.compute_pose(input_path, annotations_file, save_pose_path, image_size)
     #create training pairs
     if phase == "train":
         create_pairs_dataset.create_pairs(annotations_file, pairs_file_train)

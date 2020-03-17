@@ -3,8 +3,9 @@
  
 ## Installation
 
-Clone this repository. Download the pre-trained Keras model for Human-Pose Detection(Open-pose) from [Open-pose](https://drive.google.com/file/d/13C2psaHPj0ooxyVUK85ub3EVpHkVtr4E/view?usp=sharing). Download the pre-trained VGG-19 PyTorch model from [VGG](https://drive.google.com/file/d/14A6RevoScEBoJtPfWAuhloaGXZoy82Sf/view?usp=sharing).
+Clone this repository. Download the pre-trained Pose-Transfer pytorch model from [Pose-Transfer](https://drive.google.com/open?id=14eQCdUF9Chz7uDYWoN0FeMEtkt9qxsLw) Download the pre-trained Keras model for Human-Pose Detection(Open-pose) from [Open-pose](https://drive.google.com/file/d/13C2psaHPj0ooxyVUK85ub3EVpHkVtr4E/view?usp=sharing). Download the pre-trained VGG-19 PyTorch model from [VGG](https://drive.google.com/file/d/14A6RevoScEBoJtPfWAuhloaGXZoy82Sf/view?usp=sharing).
 
+Put the Pose-Transfer model in the checkpoints/final_honeywell directory
 Put the VGG model in the main Data-Augmentation repository.
 Put the Human-Pose Detection(Open-pose) model in the Data-Augmentation/tool.
 
@@ -29,8 +30,8 @@ Put the Human-Pose Detection(Open-pose) model in the Data-Augmentation/tool.
 Run the following python commands to generate 18-channel keypoint Posemaps of the input and target images. 
 
 ```python
-python tool/compute_coordinates.py test_in
-python tool/compute_coordinates.py test_out
+python tool/compute_coordinates.py --phase test_in --img_size 128,64 
+python tool/compute_coordinates.py --phase test_out --img_size 128,64
 
 ```
 Input Posemaps are stored in seed_data/test_inK. Target Posemaps are stored in seed_data/test_outK
