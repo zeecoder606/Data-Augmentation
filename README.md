@@ -6,7 +6,7 @@
 Clone this repository. Download the pre-trained Keras model for Human-Pose Detection(Open-pose) from [Open-pose](https://drive.google.com/file/d/13C2psaHPj0ooxyVUK85ub3EVpHkVtr4E/view?usp=sharing). Download the pre-trained VGG-19 PyTorch model from [VGG](https://drive.google.com/file/d/14A6RevoScEBoJtPfWAuhloaGXZoy82Sf/view?usp=sharing).
 
 Put the VGG model in the main Data-Augmentation repository.
-Put the Pose-Transfer model in the Data-Augmentation/tool.
+Put the Human-Pose Detection(Open-pose) model in the Data-Augmentation/tool.
 
 # Requirement
     python 2
@@ -22,7 +22,7 @@ Put the Pose-Transfer model in the Data-Augmentation/tool.
     dominate
 
 # Testing
- Put all the input images to transform in /seed_data/test_in
+ place all the input images to transform in /seed_data/test_in
  
  Put all the target images, to which the input image is transformed in seed-data/test_out. 
 
